@@ -24,5 +24,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ message: "Welcome Binh's application." });
 });
-
+// set up routes i am using /api/tutorials
+require("./app/routes/tutorial.routes")(app);
 module.exports = app;

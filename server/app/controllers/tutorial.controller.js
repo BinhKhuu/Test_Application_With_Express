@@ -30,8 +30,6 @@ exports.create = (req, res) => {
     });
   });
 
-
-
 };
 // Retrieve all Tutorials from the database.
 exports.findAll = (req, res) => {
@@ -133,7 +131,7 @@ exports.deleteAll = (req, res) => {
 exports.findAllPublished = (req, res) => {
   Tutorial.findAll({ where: { published: true } })
     .then(data => {
-      res.send(data);
+      res.status(200).send(data);
     })
     .catch(err => {
       res.status(500).send({
