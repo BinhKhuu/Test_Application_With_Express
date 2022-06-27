@@ -1,0 +1,17 @@
+name: Test
+on: [push]
+
+jobs:
+# client folder job
+  test:
+    name: ClientTest
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: client/react-crud
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: npm ci
+      - name: Unit Tests
+        run: npm test --watchAll=false
