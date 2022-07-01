@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import {Link} from 'react-router-dom';
+import {Routes, Route, Link} from 'react-router-dom';
+import TutorialsList from './components/TutorialsList';
+import AddTutorials from './components/AddTutorials';
 
 const App = props => {
   return (
@@ -26,6 +28,16 @@ const App = props => {
           </li>
         </div>
       </nav>
+      <div className="container mt-3">
+        <Routes>
+          <Route exact path={'/'} element={<TutorialsList tutorials={[]} />} />
+          <Route
+            exact path={'/tutorials'}
+            element={<TutorialsList tutorials={[]} />}
+          />
+          <Route exact path={'/Add'} element={<AddTutorials />} />
+        </Routes>
+      </div>
     </div>
   );
 };

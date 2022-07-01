@@ -43,3 +43,19 @@ describe('App', () => {
     });
   });
 });
+
+describe('Routes', () => {
+  it('redirects page to route path tutorials', () => {
+    const history = createMemoryHistory();
+    customRender(<App></App>, {history: history});
+    userEvent.click(screen.getByText('Tutorials'));
+    expect(screen.getByText('Tutorials List')).toBeInTheDocument();
+  });
+
+  it('redirects page to route path Add', () => {
+    const history = createMemoryHistory();
+    customRender(<App></App>, {history: history});
+    userEvent.click(screen.getByText('Add'));
+    expect(screen.getByText('Add Tutorials')).toBeInTheDocument();
+  });
+});
