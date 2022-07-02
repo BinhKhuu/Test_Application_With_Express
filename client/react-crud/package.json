@@ -15,8 +15,10 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@types/jest": "^28.1.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "flush-promises": "^1.0.2",
     "prettier": "^2.7.1"
   },
   "scripts": {
