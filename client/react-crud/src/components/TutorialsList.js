@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import TutorialService from '../services/TutorialDataService';
+
 const TutorialsList = props => {
   const [tutorials, setTutorials] = useState(props.tutorials);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -13,8 +14,8 @@ const TutorialsList = props => {
 
   const retrieveTutorials = async () => {
     try {
-      const tutorials = await TutorialService.getAll();
-      setTutorials(tutorials);
+      let tutorials = await TutorialService.getAll();
+      setTutorials(tutorials.data);
     } catch {
       setTutorials([]);
     }
@@ -58,7 +59,7 @@ const TutorialsList = props => {
       </div>
       <div className="col-md-6">
         <h4>Tutorials List</h4>
-        <ul className="list-group">
+        <ul aria-labelledby="tutorials-heading" className="list-group">
           {tutorials &&
             tutorials.map((tutorial, index) => (
               <li
@@ -97,7 +98,7 @@ const TutorialsList = props => {
             </div>
             <Link
               to={'/tutorials/' + currentTutorial.id}
-              className="badge badge-warning"
+              className="badge rounded-pill bg-warning"
             >
               Edit
             </Link>
