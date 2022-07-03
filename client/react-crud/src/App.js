@@ -4,7 +4,7 @@ import './App.css';
 import {Routes, Route, Link} from 'react-router-dom';
 import TutorialsList from './components/TutorialsList';
 import AddTutorials from './components/AddTutorials';
-
+import Tutorial from './components/Tutorial';
 const App = props => {
   return (
     <div role="application" className="App">
@@ -36,6 +36,7 @@ const App = props => {
             element={<TutorialsList tutorials={[]} />}
           />
           <Route exact path={'/Add'} element={<AddTutorials />} />
+          <Route exact path="/tutorials/:id" element={<Tutorial />} />
         </Routes>
       </div>
     </div>
